@@ -73,6 +73,9 @@ functions:
           path: todos
           cors: true
           authorizer: Auth
+          request:
+            schema:
+              application/json: ${file(models/create-todo-model.json)}
     iamRoleStatements:
       - Effect: Allow
         Action:
@@ -131,9 +134,6 @@ functions:
           method: post
           path: todos/{todoId}/attachment
           cors: true
-          request:
-            schema:
-              application/json: ${file(models/create-todo-model.json)}
     iamRoleStatements:
       - Effect: Allow
         Action:
